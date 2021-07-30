@@ -43,6 +43,16 @@ func (receiver *List) Add(node ListNode) {
 	receiver.length++
 }
 
+func (receiver *List) PopLast(node ListNode) {
+	if receiver.len() == 0 {
+
+	}
+}
+
+func (receiver *List) PopFirst(node ListNode) {
+
+}
+
 func main() {
 	person := ListNode{
 		Prev:      nil,
