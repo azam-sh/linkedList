@@ -55,7 +55,6 @@ func (receiver *List) PopLast() {
 	previousToDelete.Next = nil
 	previousToDelete = receiver.end
 	receiver.length--
-
 }
 
 func (receiver *List) PopFirst() {
@@ -98,12 +97,22 @@ func main() {
 	queue.Add(person)
 	fmt.Println(queue)
 
+	person = ListNode{
+		Prev:      nil,
+		Next:      nil,
+		Name:      "Umed",
+		Purchases: 320,
+	}
+	queue.Add(person)
+
 	queue.PrintList()
 
 	queue.PopLast()
-	queue.PopFirst()
-
 	queue.PrintList()
+	// queue.PopFirst()
+
+	// queue.PrintList()
+	// queue.PrintList()
 	// fmt.Println(queue.root)
 	// fmt.Println(queue.end)
 }
