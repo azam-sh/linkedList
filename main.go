@@ -43,14 +43,29 @@ func (receiver *List) Add(node ListNode) {
 	receiver.length++
 }
 
-func (receiver *List) PopLast(node ListNode) {
+func (receiver *List) PopLast() {
 	if receiver.len() == 0 {
-
+		return
 	}
+
+	previousToDelete := receiver.root
+	for previousToDelete.Next.Next != nil {
+		previousToDelete = previousToDelete.Next
+	}
+	previousToDelete.Next = nil
+	previousToDelete = receiver.end
+	receiver.length--
+
 }
 
-func (receiver *List) PopFirst(node ListNode) {
-
+func (receiver *List) PopFirst() {
+	if receiver.len() == 0 {
+		return
+	}
+	nextToDelete := receiver.root.Next
+	receiver.root = nextToDelete
+	nextToDelete.Prev = nil
+	receiver.length--
 }
 
 func main() {
@@ -85,6 +100,10 @@ func main() {
 
 	queue.PrintList()
 
-	fmt.Println(queue.root)
-	fmt.Println(queue.end)
+	queue.PopLast()
+	queue.PopFirst()
+
+	queue.PrintList()
+	// fmt.Println(queue.root)
+	// fmt.Println(queue.end)
 }
